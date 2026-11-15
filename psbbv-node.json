@@ -1,0 +1,25 @@
+{
+  "manifestVersion": 1,
+  "id": "factory.spdw.psbbv.network",
+  "name": "PSBBV Network",
+  "version": "0.1.0",
+  "apiVersion": "1.0",
+  "description": "Shared connectivity status, diagnostics and secure network request adapters for PSBBV.",
+  "category": "network",
+  "platforms": [
+    "psvita"
+  ],
+  "capabilities": [
+    "network.status.read",
+    "network.diagnostics.read",
+    "network.request.execute"
+  ],
+  "permissions": [
+    "network.client",
+    "storage.private"
+  ],
+  "availability": "planned",
+  "runtime": {
+    "kind": "builtin"
+  }
+}
