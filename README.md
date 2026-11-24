@@ -35,6 +35,12 @@ PSBBV Network owns network status, connection workflows and integrations used by
 
 Host tests, TLS/URL policy tests, secret-redaction checks, bounded-response tests, VitaSDK build and physical Vita network validation. A successful HTTP request on a desktop does not prove Vita compatibility.
 
+## Project map
+
+- [Portable network status contract](docs/NETWORK-STATUS.md) — states, validation, privacy boundary and next integration gate.
+
 ## Status
 
-Repository bootstrap and product boundary only. Planned features are not yet implemented. English UI/docs and SPDW Factory identity are required.
+The first portable C++17 status contract is implemented. It defines unknown/offline/connecting/online/limited states, sequence and observation metadata, bounded retry counts, normalized error codes and deterministic validation. Host CI compiles the contract with warnings treated as errors and runs its regression tests.
+
+This is not yet a live network service: there is no VitaSDK provider, Wi-Fi probe, DNS/TLS request adapter or physical Vita validation. The node manifest therefore remains \`planned\`; it must not be advertised as ready until those gates pass. English UI/docs and SPDW Factory identity are required.
