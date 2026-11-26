@@ -22,6 +22,12 @@ PSBBV Network owns network status, connection workflows and integrations used by
 - Bound requests, responses, retries and timeouts. Make network work cancellable and report offline state honestly.
 - Do not create a competing service registry or duplicate another project's authentication authority.
 
+## HTTPS endpoint policy milestone
+
+The portable URL-policy library accepts only `https://` endpoints with a syntactically valid DNS host and optional port 1–65535. It rejects user-info, malformed host labels, unsafe characters, fragments and overlong URLs. This is a syntax gate only: it does not resolve DNS or perform TLS, certificate or hostname verification. Those remain mandatory responsibilities of the Vita network adapter.
+
+Run `cmake -S . -B build && cmake --build build --parallel && ctest --test-dir build --output-on-failure` for host verification.
+
 ## Delivery order
 
 1. Inventory documented Vita networking capabilities and limitations.
