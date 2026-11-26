@@ -12,6 +12,6 @@ psbbv_endpoint_result psbbv_validate_endpoint(const char *url) {
     if(end==host) return PSBBV_ENDPOINT_INVALID_HOST;
     for(p=host;p<end;p++) if(*p=='@') return PSBBV_ENDPOINT_CREDENTIALS_FORBIDDEN;
     if(*host=='.'||end[-1]=='.'||end[-1]==':') return PSBBV_ENDPOINT_INVALID_HOST;
-    if(*end=='#') return PSBBV_ENDPOINT_INVALID_HOST;
+    if(strchr(end,'#')) return PSBBV_ENDPOINT_INVALID_HOST;
     return PSBBV_ENDPOINT_OK;
 }
