@@ -15,7 +15,8 @@ psbbv_url_result psbbv_network_validate_https_url(const char *url) {
     if (url == NULL || url[0] == '\0') return PSBBV_URL_INVALID_ARGUMENT;
     length = bounded_length(url, PSBBV_NETWORK_URL_MAX + 1u);
     if (length > PSBBV_NETWORK_URL_MAX) return PSBBV_URL_TOO_LONG;
-    if (length < 9 || memcmp(url, "https://", 8) != 0) return PSBBV_URL_REQUIRES_HTTPS;
+    if (length < 8 || memcmp(url, "https://", 8) != 0) return PSBBV_URL_REQUIRES_HTTPS;
+    if (length == 8) return PSBBV_URL_INVALID_AUTHORITY;
     for (i = 0; i < length; ++i) {
         unsigned char c = (unsigned char)url[i];
         if (c <= 0x20 || c == 0x7f || c == '\\' || c == '#')
